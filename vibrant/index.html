@@ -138,6 +138,21 @@
   }
   .hero p.lede{font-size:clamp(1.05rem,1.8vw,1.32rem);color:rgba(255,255,255,.92);max-width:640px;margin-bottom:2.2rem;text-shadow:0 2px 16px rgba(0,0,0,.5)}
   .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:2.6rem}
+  /* ---------- superhost badge ---------- */
+  .superhost-badge{
+    display:inline-flex;align-items:center;gap:.5rem;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.04em;
+    color:var(--deep);
+    background:linear-gradient(95deg,var(--gold),#ffd97a);
+    padding:.5rem 1rem .5rem .8rem;border-radius:999px;
+    box-shadow:0 8px 24px rgba(255,193,69,.4);
+    border:1px solid rgba(255,255,255,.5);
+  }
+  .superhost-badge .medal{
+    width:22px;height:22px;flex:none;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;background:rgba(11,16,38,.12);font-size:.95rem;
+  }
+  .hero-superhost{margin-bottom:1.5rem}
   .hero-proof{display:flex;gap:2.4rem;flex-wrap:wrap}
   .proof-item{display:flex;flex-direction:column}
   .proof-item b{font-family:'Archivo',sans-serif;font-size:1.55rem;color:var(--gold);text-shadow:0 2px 12px rgba(0,0,0,.5)}
@@ -184,6 +199,17 @@
   .unit-body p{font-size:.93rem;color:#5a6072;flex:1}
   .book-row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
   .book-row .btn-primary{padding:.62rem 1.3rem;font-size:.9rem}
+  .book-row .book-direct{
+    background:linear-gradient(95deg,var(--teal),var(--neon-cyan));
+    box-shadow:0 8px 22px rgba(0,201,167,.4);color:var(--deep);
+  }
+  .book-row .book-direct:hover{box-shadow:0 12px 30px rgba(0,201,167,.55)}
+  .book-row .or-airbnb{
+    font-size:.8rem;font-weight:600;color:#8a90a3;text-decoration:none;
+    border:1px solid #e3e0d8;border-radius:999px;padding:.5rem .85rem;transition:border-color .2s,color .2s;
+  }
+  .book-row .or-airbnb:hover{border-color:var(--coral);color:var(--coral)}
+  .book-row .or-label{font-size:.78rem;color:#a0a5b5;font-weight:500;width:100%;margin:.1rem 0 -.1rem}
   .ota-link{
     font-size:.8rem;font-weight:600;color:#8a90a3;text-decoration:none;
     border:1px solid #e3e0d8;border-radius:999px;padding:.5rem .85rem;transition:border-color .2s,color .2s;
@@ -269,6 +295,39 @@
   .stat-pill b{font-family:'Archivo',sans-serif;font-size:1.6rem;display:flex;align-items:center;gap:.4rem}
   .stat-pill b .star{color:var(--gold)}
   .stat-pill span{font-size:.85rem;color:#7a8093;display:block;margin-top:.2rem;line-height:1.4}
+  .superhost-callout{
+    display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;
+    background:linear-gradient(95deg,rgba(255,193,69,.16),rgba(255,217,122,.08));
+    border:1px solid rgba(255,193,69,.45);border-radius:18px;
+    padding:1.1rem 1.4rem;margin-bottom:2.4rem;
+  }
+  .superhost-callout .sh-medal{
+    width:54px;height:54px;flex:none;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;font-size:1.7rem;
+    background:linear-gradient(135deg,var(--gold),#ffd97a);box-shadow:0 8px 22px rgba(255,193,69,.4);
+  }
+  .superhost-callout .sh-text b{font-family:'Archivo',sans-serif;font-size:1.15rem;display:block;color:var(--ink)}
+  .superhost-callout .sh-text span{font-size:.9rem;color:#5a6072}
+
+  /* ---------- direct-save banner ---------- */
+  .save-banner{
+    display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:center;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);
+    border-radius:var(--radius);padding:1.8rem 2rem;margin-bottom:2.6rem;text-align:left;
+    backdrop-filter:blur(8px);
+  }
+  .save-banner .save-badge{
+    font-family:'Archivo',sans-serif;font-weight:900;line-height:1;text-align:center;
+    background:linear-gradient(135deg,var(--gold),#ffd97a);color:var(--deep);
+    border-radius:18px;padding:1.1rem 1.4rem;box-shadow:0 10px 28px rgba(0,0,0,.25);
+  }
+  .save-banner .save-badge .big{display:block;font-size:2.2rem}
+  .save-banner .save-badge .sml{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
+  .save-banner h3{font-size:1.35rem;margin-bottom:.4rem}
+  .save-banner p{font-size:.97rem;color:rgba(255,255,255,.9);max-width:640px}
+  .save-perks{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:.9rem}
+  .save-perks span{font-size:.85rem;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:.4rem}
+  @media (max-width:640px){.save-banner{grid-template-columns:1fr;text-align:center}.save-perks{justify-content:center}}
 
   /* ---------- book strip ---------- */
   .direct{
@@ -298,6 +357,19 @@
     box-shadow:0 10px 28px rgba(0,0,0,.25);transition:transform .2s,box-shadow .2s;display:inline-block;
   }
   .btn-book:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,0,0,.35)}
+  .btn-book-direct{
+    margin-top:auto;align-self:stretch;text-align:center;
+    background:linear-gradient(95deg,var(--teal),var(--neon-cyan));color:var(--deep);
+    font-family:'Archivo',sans-serif;font-weight:800;
+    padding:.78rem 1.5rem;border-radius:999px;text-decoration:none;font-size:1rem;
+    box-shadow:0 10px 28px rgba(0,201,167,.4);transition:transform .2s,box-shadow .2s;display:block;
+  }
+  .btn-book-direct:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,201,167,.55)}
+  .bc-airbnb{
+    display:inline-block;margin-top:.5rem;font-size:.85rem;font-weight:600;
+    color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;
+  }
+  .bc-airbnb:hover{color:#fff}
   .bc-otas{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.3rem}
   .bc-otas a{
     font-size:.76rem;font-weight:600;color:rgba(255,255,255,.85);text-decoration:none;
@@ -372,7 +444,7 @@
     <a href="#arcade">The Arcades</a>
     <a href="#neighborhood">Little Havana</a>
     <a href="#contact">Contact</a>
-    <a class="btn btn-primary nav-cta" href="#book">Book Now</a>
+    <a class="btn btn-primary nav-cta" href="#book-direct">Book Direct</a>
   </div>
 </nav>
 
@@ -383,8 +455,12 @@
     <p class="kicker reveal">Little Havana &middot; Miami, Florida</p>
     <h1 class="reveal d1">Stay steps from Calle Ocho.<br><span class="grad">Game nights included.</span></h1>
     <p class="lede reveal d2">Three boutique Miami homes in the heart of Little Havana &mdash; and every single one comes with its own arcade. Cafecito in the morning, music down the street at night, free play till whenever.</p>
+    <div class="hero-superhost reveal d2">
+      <span class="superhost-badge"><span class="medal">&#127941;</span>Airbnb Superhost &middot; 221 reviews &middot; 5-star stays</span>
+    </div>
     <div class="hero-ctas reveal d3">
-      <a class="btn btn-primary" href="#book">Check Availability</a>
+      <!-- TODO: replace #book-direct with the live Guesty Miami booking-engine URL once Miami units are published -->
+      <a class="btn btn-primary" href="#book-direct">Book Direct &amp; Save</a>
       <a class="btn btn-ghost" href="#homes">Meet the Homes</a>
     </div>
     <div class="hero-proof reveal d3">
@@ -418,7 +494,10 @@
           </div>
           <p>The crowd-pleaser. Bring the whole group, drop your bags, and let a wall of arcade cabinets settle who's actually best at the classics.</p>
           <div class="book-row">
-            <a class="btn btn-primary" href="https://www.airbnb.com/rooms/1025567565334206884" target="_blank" rel="noopener">Book on Airbnb</a>
+            <!-- TODO: replace #book-direct with the live Guesty Miami booking-engine URL once Miami units are published -->
+            <a class="btn btn-primary book-direct" href="#book-direct">Book Direct</a>
+            <a class="or-airbnb" href="https://www.airbnb.com/rooms/1025567565334206884" target="_blank" rel="noopener">or book on Airbnb</a>
+            <span class="or-label">Other sites coming soon:</span>
             <a class="ota-link" href="#" aria-label="VRBO coming soon">VRBO</a>
             <a class="ota-link" href="#" aria-label="Booking.com coming soon">Booking.com</a>
           </div>
@@ -441,7 +520,10 @@
           </div>
           <p>Our highest-rated Miami home. Bright, airy, and yes &mdash; that's a real Simpsons arcade tucked in the living room. As fun as it sounds.</p>
           <div class="book-row">
-            <a class="btn btn-primary" href="https://www.airbnb.com/rooms/1050944831279941178" target="_blank" rel="noopener">Book on Airbnb</a>
+            <!-- TODO: replace #book-direct with the live Guesty Miami booking-engine URL once Miami units are published -->
+            <a class="btn btn-primary book-direct" href="#book-direct">Book Direct</a>
+            <a class="or-airbnb" href="https://www.airbnb.com/rooms/1050944831279941178" target="_blank" rel="noopener">or book on Airbnb</a>
+            <span class="or-label">Other sites coming soon:</span>
             <a class="ota-link" href="#" aria-label="VRBO coming soon">VRBO</a>
             <a class="ota-link" href="#" aria-label="Booking.com coming soon">Booking.com</a>
           </div>
@@ -464,7 +546,10 @@
           </div>
           <p>The boutique home. Cozier, full of character, with a Street Fighter cabinet ready to go. Perfect for a smaller group close to South Beach.</p>
           <div class="book-row">
-            <a class="btn btn-primary" href="https://www.airbnb.com/rooms/968315579016397898" target="_blank" rel="noopener">Book on Airbnb</a>
+            <!-- TODO: replace #book-direct with the live Guesty Miami booking-engine URL once Miami units are published -->
+            <a class="btn btn-primary book-direct" href="#book-direct">Book Direct</a>
+            <a class="or-airbnb" href="https://www.airbnb.com/rooms/968315579016397898" target="_blank" rel="noopener">or book on Airbnb</a>
+            <span class="or-label">Other sites coming soon:</span>
             <a class="ota-link" href="#" aria-label="VRBO coming soon">VRBO</a>
             <a class="ota-link" href="#" aria-label="Booking.com coming soon">Booking.com</a>
           </div>
@@ -549,8 +634,15 @@
 <section class="reviews" id="reviews">
   <div class="wrap">
     <p class="sec-kicker reveal">Guest Love</p>
-    <h2 class="sec-title reveal">221 reviews. Real guests, real stays.</h2>
-    <p class="sec-sub reveal d1">We host these homes personally, and the ratings below come straight from Airbnb.</p>
+    <h2 class="sec-title reveal">Airbnb Superhost &middot; 221 reviews &middot; 5-star stays.</h2>
+    <p class="sec-sub reveal d1">We host these homes personally &mdash; and it shows. We've earned Airbnb Superhost status, the badge reserved for hosts with top ratings, fast replies, and reliable stays. The ratings below come straight from Airbnb.</p>
+    <div class="superhost-callout reveal d1">
+      <span class="sh-medal">&#127941;</span>
+      <div class="sh-text">
+        <b>Airbnb Superhost</b>
+        <span>Top-rated, experienced hosts &mdash; 221 reviews and 5-star stays across all three Miami homes.</span>
+      </div>
+    </div>
     <div class="stars-row">
       <div class="stat-pill reveal"><b><span class="star">&#9733;</span>4.77</b><span>92 reviews &mdash; Miami &amp; Calle Ocho Home with Full Arcade</span></div>
       <div class="stat-pill reveal d1"><b><span class="star">&#9733;</span>4.89</b><span>46 reviews &mdash; Calle Ocho Home with Simpsons Arcade</span></div>
@@ -560,10 +652,24 @@
 </section>
 
 <section class="direct" id="book">
+  <a id="book-direct"></a>
   <div class="wrap">
-    <p class="sec-kicker reveal">Book Your Stay</p>
-    <h2 class="sec-title reveal">Ready when you are.</h2>
-    <p class="sec-sub reveal d1">Pick your home below &mdash; each link goes straight to that home's live calendar, verified reviews, and secure checkout.</p>
+    <p class="sec-kicker reveal">Book Direct &amp; Save</p>
+    <h2 class="sec-title reveal">Book direct &amp; save ~15%.</h2>
+    <p class="sec-sub reveal d1">Same homes, same hosts, best rate. Booking directly with us skips the booking-site service fees, so guests typically save ~15% versus the OTAs &mdash; plus you get our personal service from first message to checkout.</p>
+    <div class="save-banner reveal d1">
+      <div class="save-badge"><span class="big">~15%</span><span class="sml">typical savings</span></div>
+      <div>
+        <h3>Why book direct?</h3>
+        <p>When you book through a booking site, you pay their service fee on top of the nightly rate. Book direct and that fee goes away &mdash; same home, best rate, and you're talking straight to the people who host it.</p>
+        <div class="save-perks">
+          <span>&#10003; Skip the booking-site service fees</span>
+          <span>&#10003; Same homes, best rate</span>
+          <span>&#10003; Personal host service</span>
+        </div>
+      </div>
+    </div>
+    <p class="sec-sub reveal d1" style="margin-bottom:2.4rem">Pick your home below and message us to lock in the direct rate. Prefer Airbnb? Every home's verified listing is one tap away.</p>
     <div class="book-grid">
 
       <div class="book-card reveal">
@@ -571,7 +677,9 @@
         <div class="bc-body">
           <h3>Miami &amp; Calle Ocho Home with Full Arcade</h3>
           <div class="unit-rating"><span class="star">&#9733;</span> 4.77 <span class="count">&middot; 92 reviews &middot; Sleeps 6</span></div>
-          <a class="btn-book" href="https://www.airbnb.com/rooms/1025567565334206884" target="_blank" rel="noopener">Book on Airbnb &rarr;</a>
+          <!-- TODO: replace #book-direct with the live Guesty Miami booking-engine URL once Miami units are published -->
+          <a class="btn-book-direct" href="#book-direct">Book Direct &amp; Save &rarr;</a>
+          <a class="bc-airbnb" href="https://www.airbnb.com/rooms/1025567565334206884" target="_blank" rel="noopener">or book on Airbnb</a>
           <div class="bc-otas"><a href="#">VRBO</a><a href="#">Booking.com</a></div>
         </div>
       </div>
@@ -581,7 +689,9 @@
         <div class="bc-body">
           <h3>Calle Ocho Home with Simpsons Arcade</h3>
           <div class="unit-rating"><span class="star">&#9733;</span> 4.89 <span class="count">&middot; 46 reviews &middot; Sleeps 6</span></div>
-          <a class="btn-book" href="https://www.airbnb.com/rooms/1050944831279941178" target="_blank" rel="noopener">Book on Airbnb &rarr;</a>
+          <!-- TODO: replace #book-direct with the live Guesty Miami booking-engine URL once Miami units are published -->
+          <a class="btn-book-direct" href="#book-direct">Book Direct &amp; Save &rarr;</a>
+          <a class="bc-airbnb" href="https://www.airbnb.com/rooms/1050944831279941178" target="_blank" rel="noopener">or book on Airbnb</a>
           <div class="bc-otas"><a href="#">VRBO</a><a href="#">Booking.com</a></div>
         </div>
       </div>
@@ -591,7 +701,9 @@
         <div class="bc-body">
           <h3>Miami Boutique by Calle Ocho &mdash; South Beach w/ Arcade</h3>
           <div class="unit-rating"><span class="star">&#9733;</span> 4.81 <span class="count">&middot; 83 reviews &middot; Sleeps 4</span></div>
-          <a class="btn-book" href="https://www.airbnb.com/rooms/968315579016397898" target="_blank" rel="noopener">Book on Airbnb &rarr;</a>
+          <!-- TODO: replace #book-direct with the live Guesty Miami booking-engine URL once Miami units are published -->
+          <a class="btn-book-direct" href="#book-direct">Book Direct &amp; Save &rarr;</a>
+          <a class="bc-airbnb" href="https://www.airbnb.com/rooms/968315579016397898" target="_blank" rel="noopener">or book on Airbnb</a>
           <div class="bc-otas"><a href="#">VRBO</a><a href="#">Booking.com</a></div>
         </div>
       </div>
@@ -605,16 +717,16 @@
   <div class="wrap contact-grid">
     <div class="reveal">
       <p class="sec-kicker">Contact</p>
-      <h2 class="sec-title">Questions? We answer personally.</h2>
-      <p class="sec-sub" style="margin-bottom:0">Planning a trip, traveling with a group, or curious which home fits you best? Message us through any home's listing page &mdash; every message comes straight to your hosts, and we typically reply fast.</p>
+      <h2 class="sec-title">Message us to lock in the direct rate.</h2>
+      <p class="sec-sub" style="margin-bottom:0">Want the best price? Reach out and we'll set up your direct booking &mdash; same home, no booking-site service fee, typically ~15% less than the OTAs. Planning a trip, traveling with a group, or curious which home fits you best? Every message comes straight to your hosts, and we typically reply fast.</p>
       <div class="addr">
         <span class="mark">&#128205;</span>
         <span>1721 SW 11th Terrace, Miami, FL 33135 &middot; Little Havana</span>
       </div>
     </div>
     <div class="contact-card reveal d1">
-      <h3>Message your hosts</h3>
-      <p>Open the home you're interested in and tap &ldquo;Message Host&rdquo; &mdash; you're talking to the people who host these homes, not a call center.</p>
+      <h3>Message your hosts to book direct</h3>
+      <p>Tell us your dates and the home you want and we'll lock in your direct rate &mdash; you're talking to the people who host these homes, not a call center. Prefer Airbnb? Open any listing below and tap &ldquo;Message Host.&rdquo;</p>
       <ul class="contact-list">
         <li><a href="https://www.airbnb.com/rooms/1025567565334206884" target="_blank" rel="noopener">Miami &amp; Calle Ocho Home with Full Arcade <span class="go">&rarr;</span></a></li>
         <li><a href="https://www.airbnb.com/rooms/1050944831279941178" target="_blank" rel="noopener">Calle Ocho Home with Simpsons Arcade <span class="go">&rarr;</span></a></li>
