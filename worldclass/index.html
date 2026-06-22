@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stay Calle Ocho — Boutique Miami Homes with Arcades | Little Havana</title>
+<meta name="description" content="Three boutique Miami homes steps from Calle Ocho in Little Havana — each with its own in-home arcade. Airbnb Superhost. Book direct & save ~15%.">
+<meta name="theme-color" content="#0b1026">
+<meta property="og:title" content="Stay Calle Ocho — Boutique Miami Homes with Arcades">
+<meta property="og:description" content="Three boutique Miami homes in Little Havana, each with its own arcade. Airbnb Superhost. Book direct & save ~15%.">
+<meta property="og:type" content="website">
+<!--
+  ============================================================
+  WORLD-CLASS BUILD — "Stay Calle Ocho" immersive Miami edition.
+  MIAMI = OTA-ONLY. Miami-only site — never link to or mention any non-Miami brand/site.
+  Real listing photos only. Per-unit verified Airbnb URLs:
+    M1  -> airbnb.com/rooms/1025567565334206884
+    M2  -> airbnb.com/rooms/1050944831279941178
+    MB  -> airbnb.com/rooms/968315579016397898
+  Static / GitHub Pages friendly: CDN libs only, no build step,
+  all relative asset paths. Progressive enhancement — core
+  content + photos + booking links visible with JS disabled.
+  ============================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,700;0,900;1,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Preload the hero image so the LCP paints fast -->
+<link rel="preload" as="image" href="img/m1-2.jpg" fetchpriority="high">
+
+<style>
+  :root{
+    --coral:#ff5e62;
+    --sunset:#ff9966;
+    --teal:#00c9a7;
+    --deep:#0b1026;
+    --deep-2:#141a38;
+    --neon-pink:#ff2e88;
+    --neon-cyan:#21e6c1;
+    --gold:#ffc145;
+    --cream:#fff6ef;
+    --ink:#1c2033;
+    --radius:22px;
+    --shadow:0 18px 50px rgba(11,16,38,.18);
+    --ease-out:cubic-bezier(.22,.9,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Archivo',sans-serif;line-height:1.08}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  ::selection{background:var(--neon-pink);color:#fff}
+
+  /* ---------- branded scrollbar ---------- */
+  ::-webkit-scrollbar{width:11px}
+  ::-webkit-scrollbar-track{background:var(--deep)}
+  ::-webkit-scrollbar-thumb{background:linear-gradient(var(--coral),var(--neon-cyan));border-radius:999px;border:2px solid var(--deep)}
+
+  /* ---------- Lenis smooth-scroll plumbing ---------- */
+  html.lenis,html.lenis body{height:auto}
+  .lenis.lenis-smooth{scroll-behavior:auto !important}
+  .lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+  .lenis.lenis-stopped{overflow:hidden}
+
+  /* ---------- reveal (CONTENT-SAFE: visible by default; hidden ONLY when JS adds .js) ---------- */
+  .reveal{opacity:1;transform:none}
+  html.js .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+  html.js .reveal.in{opacity:1;transform:none}
+  html.js .reveal.d1{transition-delay:.09s}
+  html.js .reveal.d2{transition-delay:.18s}
+  html.js .reveal.d3{transition-delay:.27s}
+
+  /* split-text: spans are inline + visible without JS; only animated under .js */
+  .split-line{display:block;overflow:hidden}
+  .split-word{display:inline-block;will-change:transform}
+  html.js .split .split-word{transform:translateY(110%);opacity:0}
+  html.js .split.in .split-word{transform:translateY(0);opacity:1;transition:transform .9s var(--ease-out),opacity .9s var(--ease-out)}
+
+  /* ---------- page-load intro (fast, never blocks content long) ---------- */
+  #intro{
+    position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(900px 600px at 50% 40%,#1a2350,var(--deep) 70%);
+    transition:opacity .6s ease,visibility .6s ease;
+  }
+  #intro.done{opacity:0;visibility:hidden;pointer-events:none}
+  html:not(.js) #intro{display:none} /* no-JS: never show the overlay */
+  .intro-mark{
+    font-family:'Archivo',sans-serif;font-weight:900;color:#fff;
+    font-size:clamp(1.8rem,6vw,3.4rem);letter-spacing:.01em;display:flex;align-items:center;gap:.7rem;
+  }
+  .intro-mark .dot{
+    width:18px;height:18px;border-radius:50%;
+    background:linear-gradient(135deg,var(--coral),var(--neon-cyan));
+    box-shadow:0 0 26px var(--neon-cyan);
+    animation:introPulse 1s ease-in-out infinite;
+  }
+  .intro-bar{
+    position:absolute;left:0;bottom:0;height:3px;width:0;
+    background:linear-gradient(90deg,var(--coral),var(--neon-pink),var(--neon-cyan));
+    animation:introBar 1.05s var(--ease-out) forwards;
+  }
+  @keyframes introBar{to{width:100%}}
+  @keyframes introPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.35)}}
+
+  /* ---------- custom cursor (desktop pointer only) ---------- */
+  .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;z-index:300;pointer-events:none;border-radius:50%;mix-blend-mode:difference}
+  .cursor-dot{width:7px;height:7px;background:#fff;transform:translate(-50%,-50%)}
+  .cursor-ring{width:38px;height:38px;border:1.5px solid #fff;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s,border-color .25s}
+  .cursor-ring.hot{width:62px;height:62px;background:rgba(255,255,255,.12);border-color:transparent}
+  body.cursor-on,body.cursor-on a,body.cursor-on button{cursor:none}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1rem 5vw;
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    background:rgba(11,16,38,.32);
+    border-bottom:1px solid rgba(255,255,255,.06);
+    transition:padding .35s var(--ease-out),background .35s ease,border-color .35s ease;
+  }
+  nav.scrolled{padding:.6rem 5vw;background:rgba(11,16,38,.78);border-bottom-color:rgba(255,255,255,.1)}
+  .brand{
+    font-family:'Archivo',sans-serif;font-weight:900;font-size:1.15rem;color:#fff;
+    text-decoration:none;letter-spacing:.02em;display:flex;align-items:center;gap:.5rem;
+  }
+  .brand .dot{
+    width:12px;height:12px;border-radius:50%;
+    background:linear-gradient(135deg,var(--coral),var(--neon-cyan));
+    box-shadow:0 0 12px var(--neon-cyan);
+  }
+  .nav-links{display:flex;gap:1.6rem;align-items:center}
+  .nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.92rem;font-weight:500;position:relative}
+  .nav-links a:not(.btn)::after{
+    content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;
+    background:var(--neon-cyan);box-shadow:0 0 8px var(--neon-cyan);transition:width .3s var(--ease-out);
+  }
+  .nav-links a:not(.btn):hover::after{width:100%}
+  .nav-links a:not(.btn):hover{color:#fff}
+  .btn{
+    display:inline-block;text-decoration:none;font-family:'Archivo',sans-serif;font-weight:700;
+    border-radius:999px;cursor:pointer;border:none;transition:transform .2s ease,box-shadow .2s ease,filter .2s;
+    position:relative;
+  }
+  .btn-primary{
+    background:linear-gradient(95deg,var(--coral),var(--neon-pink));
+    color:#fff;padding:.78rem 1.7rem;font-size:1rem;
+    box-shadow:0 8px 26px rgba(255,46,136,.4);
+  }
+  .btn-primary:hover{box-shadow:0 12px 34px rgba(255,46,136,.55);filter:brightness(1.06)}
+  .btn-ghost{
+    color:#fff;padding:.74rem 1.6rem;border:1.5px solid rgba(255,255,255,.45);font-size:1rem;
+  }
+  .btn-ghost:hover{border-color:var(--neon-cyan);color:var(--neon-cyan)}
+  .nav-cta{padding:.55rem 1.25rem;font-size:.9rem}
+
+  /* ---------- hero ---------- */
+  header.hero{
+    position:relative;min-height:100svh;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:8rem 5vw 4.5rem;
+    color:#fff;overflow:hidden;
+    background:var(--deep);
+  }
+  /* parallax photo layer */
+  .hero-photo{
+    position:absolute;inset:-8% 0 0 0;z-index:0;
+    background:url("img/m1-2.jpg") center 55%/cover no-repeat;
+    transform:scale(1.08);will-change:transform;
+  }
+  /* WebGL/canvas twilight-depth layer sits above photo, below tint */
+  #hero-canvas{position:absolute;inset:0;z-index:1;width:100%;height:100%;pointer-events:none;opacity:.85}
+  .hero-tint{
+    position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:
+      radial-gradient(1100px 700px at 88% -10%,rgba(33,230,193,.30),transparent 60%),
+      radial-gradient(900px 800px at -8% 115%,rgba(255,46,136,.42),transparent 55%),
+      linear-gradient(180deg,rgba(11,16,38,.40) 0%,rgba(11,16,38,.10) 32%,rgba(11,16,38,.55) 72%,rgba(11,16,38,.88) 100%);
+  }
+  /* retro perspective grid floor (arcade nod) */
+  .hero-grid{
+    content:"";position:absolute;inset:auto 0 0 0;height:42%;z-index:2;
+    background:
+      repeating-linear-gradient(90deg,rgba(33,230,193,.16) 0 1px,transparent 1px 72px),
+      repeating-linear-gradient(0deg,rgba(33,230,193,.14) 0 1px,transparent 1px 46px);
+    transform:perspective(520px) rotateX(60deg) scale(1.7);
+    transform-origin:bottom center;pointer-events:none;opacity:.45;
+  }
+  .hero-inner{position:relative;z-index:3;max-width:980px;width:100%;margin:0 auto}
+  .kicker{
+    display:inline-flex;align-items:center;gap:.55rem;
+    font-size:.82rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--neon-cyan);margin-bottom:1.4rem;text-shadow:0 2px 14px rgba(0,0,0,.5);
+  }
+  .kicker::before{content:"";width:34px;height:2px;background:var(--neon-cyan);box-shadow:0 0 8px var(--neon-cyan)}
+  .hero h1{
+    font-weight:900;font-size:clamp(2.7rem,7.2vw,5.4rem);letter-spacing:-.018em;margin-bottom:1.4rem;
+    text-shadow:0 6px 30px rgba(0,0,0,.45);
+  }
+  .hero h1 .grad{
+    background:linear-gradient(92deg,var(--sunset),var(--coral) 38%,var(--neon-pink) 70%,var(--neon-cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lede{font-size:clamp(1.05rem,1.8vw,1.34rem);color:rgba(255,255,255,.92);max-width:660px;margin-bottom:2.2rem;text-shadow:0 2px 16px rgba(0,0,0,.5)}
+  .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:2.4rem}
+
+  /* superhost badge */
+  .superhost-badge{
+    display:inline-flex;align-items:center;gap:.5rem;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.04em;
+    color:var(--deep);
+    background:linear-gradient(95deg,var(--gold),#ffd97a);
+    padding:.5rem 1rem .5rem .8rem;border-radius:999px;
+    box-shadow:0 8px 24px rgba(255,193,69,.4);
+    border:1px solid rgba(255,255,255,.5);
+  }
+  .superhost-badge .medal{
+    width:22px;height:22px;flex:none;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;background:rgba(11,16,38,.12);font-size:.95rem;
+  }
+  .hero-superhost{margin-bottom:1.6rem}
+  .hero-proof{display:flex;gap:2.6rem;flex-wrap:wrap}
+  .proof-item{display:flex;flex-direction:column}
+  .proof-item b{font-family:'Archivo',sans-serif;font-size:1.6rem;color:var(--gold);text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .proof-item span{font-size:.85rem;color:rgba(255,255,255,.78)}
+
+  /* scroll cue */
+  .scroll-cue{position:absolute;left:50%;bottom:1.5rem;z-index:3;transform:translateX(-50%);
+    color:rgba(255,255,255,.7);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+    display:flex;flex-direction:column;align-items:center;gap:.5rem}
+  .scroll-cue .line{width:1px;height:34px;background:linear-gradient(rgba(255,255,255,.7),transparent);animation:cue 1.8s ease-in-out infinite}
+  @keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+  /* ---------- marquee (Calle Ocho energy) ---------- */
+  .marquee{background:var(--deep);color:#fff;overflow:hidden;padding:1.1rem 0;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07)}
+  .marquee-track{display:flex;gap:2.4rem;white-space:nowrap;width:max-content;animation:marquee 28s linear infinite}
+  .marquee span{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.15rem;letter-spacing:.04em;text-transform:uppercase;display:inline-flex;align-items:center;gap:2.4rem;color:rgba(255,255,255,.5)}
+  .marquee span em{font-style:normal;color:var(--neon-cyan)}
+  .marquee .star{color:var(--coral)}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+
+  /* ---------- sections ---------- */
+  section{padding:6rem 5vw;position:relative}
+  .wrap{max-width:1180px;margin:0 auto}
+  .sec-kicker{
+    font-size:.8rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:.7rem;
+  }
+  .sec-title{font-size:clamp(2rem,4.4vw,3.1rem);font-weight:900;letter-spacing:-.012em;margin-bottom:1rem}
+  .sec-sub{color:#5a6072;max-width:680px;font-size:1.06rem;margin-bottom:3rem}
+
+  /* ---------- units (editorial broken grid) ---------- */
+  .units-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+  .unit-card{
+    background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;transition:transform .35s var(--ease-out),box-shadow .35s ease;
+    transform-style:preserve-3d;will-change:transform;
+  }
+  /* offset the middle card down for an asymmetric editorial feel (desktop only) */
+  @media(min-width:981px){.units-grid .unit-card:nth-child(2){margin-top:2.6rem}}
+  .unit-card:hover{box-shadow:0 30px 70px rgba(11,16,38,.28)}
+  .unit-media{position:relative;aspect-ratio:4/3;overflow:hidden}
+  .unit-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out)}
+  .unit-card:hover .unit-media img{transform:scale(1.07)}
+  .unit-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,16,38,.15) 0%,transparent 35%,transparent 60%,rgba(11,16,38,.35) 100%)}
+  .arcade-tag{
+    position:absolute;top:.95rem;left:.95rem;z-index:2;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+    background:rgba(11,16,38,.72);color:var(--neon-cyan);
+    padding:.4rem .8rem;border-radius:999px;border:1px solid rgba(33,230,193,.5);
+    box-shadow:0 0 14px rgba(33,230,193,.35);backdrop-filter:blur(4px);
+  }
+  .unit-body{padding:1.5rem 1.5rem 1.7rem;display:flex;flex-direction:column;gap:.8rem;flex:1}
+  .unit-body h3{font-size:1.18rem;font-weight:900;letter-spacing:-.01em}
+  .unit-rating{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:.95rem}
+  .unit-rating .star{color:var(--gold);font-size:1.05rem}
+  .unit-rating .count{color:#7a8093;font-weight:500;font-size:.88rem}
+  .unit-meta{display:flex;gap:.55rem;flex-wrap:wrap}
+  .chip{
+    font-size:.78rem;font-weight:600;color:var(--ink);
+    background:linear-gradient(120deg,rgba(255,94,98,.12),rgba(33,230,193,.14));
+    border:1px solid rgba(255,94,98,.22);border-radius:999px;padding:.32rem .8rem;
+  }
+  .unit-body p{font-size:.93rem;color:#5a6072;flex:1}
+  .book-row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+  .book-row .btn-primary{padding:.62rem 1.3rem;font-size:.9rem}
+  .book-row .book-direct{
+    background:linear-gradient(95deg,var(--teal),var(--neon-cyan));
+    box-shadow:0 8px 22px rgba(0,201,167,.4);color:var(--deep);
+  }
+  .book-row .book-direct:hover{box-shadow:0 12px 30px rgba(0,201,167,.55)}
+  .book-row .or-airbnb{
+    font-size:.8rem;font-weight:600;color:#8a90a3;text-decoration:none;
+    border:1px solid #e3e0d8;border-radius:999px;padding:.5rem .85rem;transition:border-color .2s,color .2s;
+  }
+  .book-row .or-airbnb:hover{border-color:var(--coral);color:var(--coral)}
+  .book-row .or-label{font-size:.78rem;color:#a0a5b5;font-weight:500;width:100%;margin:.1rem 0 -.1rem}
+  .ota-link{
+    font-size:.8rem;font-weight:600;color:#8a90a3;text-decoration:none;
+    border:1px solid #e3e0d8;border-radius:999px;padding:.5rem .85rem;transition:border-color .2s,color .2s;
+  }
+  .ota-link:hover{border-color:var(--coral);color:var(--coral)}
+
+  /* ---------- pinned arcade showcase ---------- */
+  .arcade{
+    background:
+      radial-gradient(800px 400px at 90% 0%,rgba(255,46,136,.25),transparent 60%),
+      radial-gradient(700px 500px at 0% 100%,rgba(33,230,193,.18),transparent 55%),
+      var(--deep);
+    color:#fff;position:relative;overflow:hidden;
+  }
+  .arcade::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
+    background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.025) 3px 4px);
+  }
+  .arcade .wrap{position:relative;z-index:1}
+  .arcade .sec-kicker{color:var(--neon-cyan)}
+  .arcade .sec-sub{color:rgba(255,255,255,.72)}
+  .arcade-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:2.6rem;align-items:center}
+  .arcade-photo{
+    border-radius:var(--radius);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45);
+    border:1px solid rgba(33,230,193,.25);position:relative;
+  }
+  .arcade-photo img{width:100%;aspect-ratio:3/2;object-fit:cover;will-change:transform}
+  /* duotone neon accent over the arcade hero photo */
+  .arcade-photo::after{content:"";position:absolute;inset:0;mix-blend-mode:soft-light;
+    background:linear-gradient(135deg,rgba(255,46,136,.35),rgba(33,230,193,.30))}
+  .arcade-cards{display:flex;flex-direction:column;gap:1rem}
+  .arcade-card{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+    border-radius:16px;padding:1.25rem 1.4rem;transition:border-color .25s,transform .25s,background .25s;
+    display:flex;gap:1rem;align-items:flex-start;
+  }
+  .arcade-card:hover{border-color:rgba(33,230,193,.55);transform:translateX(6px);background:rgba(255,255,255,.08)}
+  .arcade-card .ico{
+    font-size:1.5rem;width:50px;height:50px;flex:none;display:flex;align-items:center;justify-content:center;
+    border-radius:14px;
+    background:linear-gradient(135deg,rgba(255,94,98,.3),rgba(33,230,193,.3));
+    border:1px solid rgba(255,255,255,.18);
+  }
+  .arcade-card h3{font-size:1.05rem;margin-bottom:.3rem}
+  .arcade-card p{font-size:.9rem;color:rgba(255,255,255,.68)}
+
+  /* ---------- gallery (parallax broken grid) ---------- */
+  .gallery{background:#fff}
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:172px;gap:.85rem;
+  }
+  .gallery-grid figure{border-radius:14px;overflow:hidden;position:relative;box-shadow:0 8px 24px rgba(11,16,38,.1)}
+  .gallery-grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out)}
+  .gallery-grid figure:hover img{transform:scale(1.08)}
+  .gallery-grid .tall{grid-row:span 2}
+  .gallery-grid .wide{grid-column:span 2}
+
+  /* ---------- neighborhood ---------- */
+  .hood-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center}
+  .hood-photo{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);position:relative}
+  .hood-photo img{width:100%;aspect-ratio:4/3.3;object-fit:cover;will-change:transform}
+  .hood-photo::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(transparent,rgba(11,16,38,.5))}
+  .hood-photo .cap{position:absolute;left:1rem;bottom:1rem;z-index:2;color:#fff;font-size:.82rem;font-weight:600;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+  .hood-list{list-style:none;display:flex;flex-direction:column;gap:1.1rem;margin-top:1.6rem}
+  .hood-list li{display:flex;gap:.9rem;align-items:flex-start}
+  .hood-list .mark{
+    flex:none;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,rgba(255,94,98,.16),rgba(33,230,193,.18));font-size:1.15rem;
+  }
+  .hood-list b{display:block;font-family:'Archivo',sans-serif}
+  .hood-list span{font-size:.92rem;color:#5a6072}
+  .hood-near{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1.7rem}
+  .hood-near .chip{font-size:.8rem}
+
+  /* ---------- reviews ---------- */
+  .reviews{background:linear-gradient(180deg,#fff 0%,var(--cream) 100%)}
+  .stars-row{display:flex;gap:1.6rem;flex-wrap:wrap}
+  .stat-pill{
+    background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:1.2rem 1.6rem;min-width:235px;flex:1;
+    border-top:4px solid var(--coral);transition:transform .3s var(--ease-out)
+  }
+  .stat-pill:hover{transform:translateY(-6px)}
+  .stat-pill:nth-child(2){border-top-color:var(--gold)}
+  .stat-pill:nth-child(3){border-top-color:var(--teal)}
+  .stat-pill b{font-family:'Archivo',sans-serif;font-size:1.6rem;display:flex;align-items:center;gap:.4rem}
+  .stat-pill b .star{color:var(--gold)}
+  .stat-pill span{font-size:.85rem;color:#7a8093;display:block;margin-top:.2rem;line-height:1.4}
+  .superhost-callout{
+    display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;
+    background:linear-gradient(95deg,rgba(255,193,69,.16),rgba(255,217,122,.08));
+    border:1px solid rgba(255,193,69,.45);border-radius:18px;
+    padding:1.1rem 1.4rem;margin-bottom:2.4rem;
+  }
+  .superhost-callout .sh-medal{
+    width:54px;height:54px;flex:none;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;font-size:1.7rem;
+    background:linear-gradient(135deg,var(--gold),#ffd97a);box-shadow:0 8px 22px rgba(255,193,69,.4);
+  }
+  .superhost-callout .sh-text b{font-family:'Archivo',sans-serif;font-size:1.15rem;display:block;color:var(--ink)}
+  .superhost-callout .sh-text span{font-size:.9rem;color:#5a6072}
+
+  /* ---------- direct-save banner ---------- */
+  .save-banner{
+    display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:center;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);
+    border-radius:var(--radius);padding:1.8rem 2rem;margin-bottom:2.6rem;text-align:left;
+    backdrop-filter:blur(8px);
+  }
+  .save-banner .save-badge{
+    font-family:'Archivo',sans-serif;font-weight:900;line-height:1;text-align:center;
+    background:linear-gradient(135deg,var(--gold),#ffd97a);color:var(--deep);
+    border-radius:18px;padding:1.1rem 1.4rem;box-shadow:0 10px 28px rgba(0,0,0,.25);
+  }
+  .save-banner .save-badge .big{display:block;font-size:2.2rem}
+  .save-banner .save-badge .sml{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
+  .save-banner h3{font-size:1.35rem;margin-bottom:.4rem}
+  .save-banner p{font-size:.97rem;color:rgba(255,255,255,.9);max-width:640px}
+  .save-perks{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:.9rem}
+  .save-perks span{font-size:.85rem;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:.4rem}
+  @media (max-width:640px){.save-banner{grid-template-columns:1fr;text-align:center}.save-perks{justify-content:center}}
+
+  /* ---------- book strip ---------- */
+  .direct{
+    background:
+      radial-gradient(900px 500px at 10% 0%,rgba(255,153,102,.5),transparent 55%),
+      radial-gradient(800px 600px at 100% 100%,rgba(33,230,193,.4),transparent 55%),
+      linear-gradient(135deg,#ff5e62,#a4338c 60%,#15355e);
+    color:#fff;text-align:center;
+  }
+  .direct .sec-kicker{color:var(--gold)}
+  .direct .sec-sub{margin-left:auto;margin-right:auto;color:rgba(255,255,255,.88)}
+  .book-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;text-align:left}
+  .book-card{
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);backdrop-filter:blur(8px);
+    border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s var(--ease-out)
+  }
+  .book-card:hover{transform:translateY(-6px)}
+  .book-card .bc-photo{aspect-ratio:16/10;overflow:hidden}
+  .book-card .bc-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out)}
+  .book-card:hover .bc-photo img{transform:scale(1.06)}
+  .book-card .bc-body{padding:1.4rem 1.4rem 1.5rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
+  .book-card h3{font-size:1.02rem;line-height:1.3}
+  .book-card .unit-rating{color:#fff}
+  .book-card .unit-rating .count{color:rgba(255,255,255,.75)}
+  .btn-book-direct{
+    margin-top:auto;align-self:stretch;text-align:center;
+    background:linear-gradient(95deg,var(--teal),var(--neon-cyan));color:var(--deep);
+    font-family:'Archivo',sans-serif;font-weight:800;
+    padding:.78rem 1.5rem;border-radius:999px;text-decoration:none;font-size:1rem;
+    box-shadow:0 10px 28px rgba(0,201,167,.4);transition:transform .2s,box-shadow .2s;display:block;
+  }
+  .btn-book-direct:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,201,167,.55)}
+  .bc-airbnb{
+    display:inline-block;margin-top:.5rem;font-size:.85rem;font-weight:600;
+    color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;
+  }
+  .bc-airbnb:hover{color:#fff}
+  .bc-otas{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.3rem}
+  .bc-otas a{
+    font-size:.76rem;font-weight:600;color:rgba(255,255,255,.85);text-decoration:none;
+    border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.38rem .75rem;transition:background .2s;
+  }
+  .bc-otas a:hover{background:rgba(255,255,255,.18)}
+  .direct .fine{margin-top:1.6rem;font-size:.82rem;color:rgba(255,255,255,.72)}
+
+  /* ---------- contact ---------- */
+  .contact{background:#fff}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+  .contact-card{
+    background:var(--cream);border-radius:var(--radius);padding:2rem 1.8rem;box-shadow:var(--shadow);
+  }
+  .contact-card h3{font-size:1.15rem;margin-bottom:.6rem}
+  .contact-card p{font-size:.95rem;color:#5a6072;margin-bottom:1.2rem}
+  .contact-list{list-style:none;display:flex;flex-direction:column;gap:.8rem}
+  .contact-list a{
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    background:#fff;border-radius:14px;padding:.85rem 1.1rem;text-decoration:none;
+    font-size:.9rem;font-weight:600;color:var(--ink);box-shadow:0 6px 18px rgba(11,16,38,.08);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .contact-list a:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(11,16,38,.14)}
+  .contact-list a .go{color:var(--coral);font-family:'Archivo',sans-serif;flex:none}
+  .addr{display:flex;align-items:center;gap:.6rem;margin-top:1.4rem;font-size:.92rem;color:#5a6072}
+  .addr .mark{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(255,94,98,.16),rgba(33,230,193,.18))}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--deep);color:rgba(255,255,255,.62);padding:3.4rem 5vw 2.4rem}
+  .foot-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.4rem}
+  footer .brand{font-size:1.05rem;margin-bottom:.8rem}
+  footer p,footer a{font-size:.9rem}
+  footer h4{font-family:'Archivo',sans-serif;color:#fff;font-size:.92rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.9rem}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+  footer a{color:rgba(255,255,255,.62);text-decoration:none;transition:color .2s}
+  footer a:hover{color:var(--neon-cyan)}
+  .foot-bottom{
+    max-width:1180px;margin:2.6rem auto 0;padding-top:1.4rem;
+    border-top:1px solid rgba(255,255,255,.1);font-size:.8rem;
+    display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .units-grid,.book-grid{grid-template-columns:1fr 1fr}
+    .arcade-layout,.hood-grid,.contact-grid{grid-template-columns:1fr}
+    .arcade-photo img{aspect-ratio:16/9}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:640px){
+    section{padding:4.4rem 6vw}
+    .nav-links a:not(.btn){display:none}
+    .units-grid,.book-grid,.foot-grid{grid-template-columns:1fr}
+    .gallery-grid .wide{grid-column:span 2}
+    .hero{padding-top:7rem}
+    .hero-proof{gap:1.4rem}
+  }
+
+  /* ---------- reduced motion: kill everything that moves ---------- */
+  @media (prefers-reduced-motion:reduce){
+    html.js .reveal{opacity:1 !important;transform:none !important;transition:none !important}
+    html.js .split .split-word{transform:none !important;opacity:1 !important;transition:none !important}
+    html{scroll-behavior:auto}
+    .marquee-track{animation:none}
+    .scroll-cue .line,.intro-mark .dot{animation:none}
+    #hero-canvas{display:none}
+  }
+</style>
+</head>
+<body id="top">
+
+<!-- page-load intro (JS-only; hidden without JS) -->
+<div id="intro" aria-hidden="true">
+  <div class="intro-mark"><span class="dot"></span>Stay Calle Ocho</div>
+  <div class="intro-bar"></div>
+</div>
+
+<!-- custom cursor (populated by JS on pointer devices only) -->
+<div class="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+
+<nav id="nav">
+  <a class="brand" href="#top"><span class="dot"></span>Stay Calle Ocho</a>
+  <div class="nav-links">
+    <a href="#homes">The Homes</a>
+    <a href="#arcade">The Arcades</a>
+    <a href="#neighborhood">Little Havana</a>
+    <a href="#contact">Contact</a>
+    <a class="btn btn-primary nav-cta" data-magnetic href="#book-direct">Book Direct</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-photo" data-parallax="0.18"></div>
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-tint"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <p class="kicker reveal">Little Havana &middot; Miami, Florida</p>
+    <h1 class="split">
+      <span class="split-line">Stay steps from Calle Ocho.</span>
+      <span class="split-line grad">Game nights included.</span>
+    </h1>
+    <p class="lede reveal d2">Three boutique Miami homes in the heart of Little Havana &mdash; and every single one comes with its own arcade. Cafecito in the morning, music down the street at night, free play till whenever.</p>
+    <div class="hero-superhost reveal d2">
+      <span class="superhost-badge"><span class="medal">&#127941;</span>Airbnb Superhost &middot; 221 reviews &middot; 5-star stays</span>
+    </div>
+    <div class="hero-ctas reveal d3">
+      <!-- TODO: replace #book-direct with live Miami booking URL -->
+      <a class="btn btn-primary" data-magnetic href="#book-direct">Book Direct &amp; Save</a>
+      <a class="btn btn-ghost" data-magnetic href="#homes">Meet the Homes</a>
+    </div>
+    <div class="hero-proof reveal d3">
+      <div class="proof-item"><b>221</b><span>guest reviews across 3 homes</span></div>
+      <div class="proof-item"><b>4.77&ndash;4.89 &#9733;</b><span>Airbnb ratings</span></div>
+      <div class="proof-item"><b>3 arcades</b><span>one in every home</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">Scroll<span class="line"></span></div>
+</header>
+
+<!-- Calle Ocho energy marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span><em>Calle Ocho</em><span class="star">&#9733;</span>Free-play arcades<span class="star">&#9733;</span>Little Havana<span class="star">&#9733;</span>Cafecito mornings<span class="star">&#9733;</span>Airbnb Superhost<span class="star">&#9733;</span>South Beach ~10 min<span class="star">&#9733;</span></span>
+    <span><em>Calle Ocho</em><span class="star">&#9733;</span>Free-play arcades<span class="star">&#9733;</span>Little Havana<span class="star">&#9733;</span>Cafecito mornings<span class="star">&#9733;</span>Airbnb Superhost<span class="star">&#9733;</span>South Beach ~10 min<span class="star">&#9733;</span></span>
+  </div>
+</div>
+
+<section id="homes">
+  <div class="wrap">
+    <p class="sec-kicker reveal">The Homes</p>
+    <h2 class="sec-title reveal">Three homes, one famous street.</h2>
+    <p class="sec-sub reveal d1">All at 1721 SW 11th Terrace &mdash; minutes from Calle Ocho, Miami's most colorful block. Every one comes with its own in-home arcade.</p>
+    <div class="units-grid">
+
+      <!-- M1 -> airbnb.com/rooms/1025567565334206884 -->
+      <article class="unit-card reveal" data-tilt>
+        <div class="unit-media">
+          <span class="arcade-tag">Full Arcade</span>
+          <img src="img/m1-1.jpg" alt="Miami &amp; Calle Ocho Home exterior with palm trees" loading="lazy">
+        </div>
+        <div class="unit-body">
+          <h3>Miami &amp; Calle Ocho Home with Full Arcade</h3>
+          <div class="unit-rating"><span class="star">&#9733;</span> 4.77 <span class="count">&middot; 92 reviews</span></div>
+          <div class="unit-meta">
+            <span class="chip">Sleeps 6</span>
+            <span class="chip">Full arcade wall</span>
+            <span class="chip">Little Havana</span>
+          </div>
+          <p>The crowd-pleaser. Bring the whole group, drop your bags, and let a wall of arcade cabinets settle who's actually best at the classics.</p>
+          <div class="book-row">
+            <!-- TODO: replace #book-direct with live Miami booking URL -->
+            <a class="btn btn-primary book-direct" data-magnetic href="#book-direct">Book Direct</a>
+            <a class="or-airbnb" href="https://www.airbnb.com/rooms/1025567565334206884" target="_blank" rel="noopener">or book on Airbnb</a>
+            <span class="or-label">Other sites coming soon:</span>
+            <a class="ota-link" href="#" aria-label="VRBO coming soon">VRBO</a>
+            <a class="ota-link" href="#" aria-label="Booking.com coming soon">Booking.com</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- M2 -> airbnb.com/rooms/1050944831279941178 -->
+      <article class="unit-card reveal d1" data-tilt>
+        <div class="unit-media">
+          <span class="arcade-tag">Simpsons Arcade</span>
+          <img src="img/m2-1.jpg" alt="Calle Ocho Home living room with Simpsons arcade cabinet" loading="lazy">
+        </div>
+        <div class="unit-body">
+          <h3>Calle Ocho Home with Simpsons Arcade</h3>
+          <div class="unit-rating"><span class="star">&#9733;</span> 4.89 <span class="count">&middot; 46 reviews</span></div>
+          <div class="unit-meta">
+            <span class="chip">Sleeps 6</span>
+            <span class="chip">Simpsons arcade</span>
+            <span class="chip">Little Havana</span>
+          </div>
+          <p>Our highest-rated Miami home. Bright, airy, and yes &mdash; that's a real Simpsons arcade tucked in the living room. As fun as it sounds.</p>
+          <div class="book-row">
+            <!-- TODO: replace #book-direct with live Miami booking URL -->
+            <a class="btn btn-primary book-direct" data-magnetic href="#book-direct">Book Direct</a>
+            <a class="or-airbnb" href="https://www.airbnb.com/rooms/1050944831279941178" target="_blank" rel="noopener">or book on Airbnb</a>
+            <span class="or-label">Other sites coming soon:</span>
+            <a class="ota-link" href="#" aria-label="VRBO coming soon">VRBO</a>
+            <a class="ota-link" href="#" aria-label="Booking.com coming soon">Booking.com</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- MB -> airbnb.com/rooms/968315579016397898 -->
+      <article class="unit-card reveal d2" data-tilt>
+        <div class="unit-media">
+          <span class="arcade-tag">Arcade</span>
+          <img src="img/mb-2.jpg" alt="Miami Boutique living room and open kitchen" loading="lazy">
+        </div>
+        <div class="unit-body">
+          <h3>Miami Boutique by Calle Ocho &mdash; South Beach w/ Arcade</h3>
+          <div class="unit-rating"><span class="star">&#9733;</span> 4.81 <span class="count">&middot; 83 reviews</span></div>
+          <div class="unit-meta">
+            <span class="chip">Sleeps 4</span>
+            <span class="chip">Arcade</span>
+            <span class="chip">Little Havana</span>
+          </div>
+          <p>The boutique home. Cozier, full of character, with a Street Fighter cabinet ready to go. Perfect for a smaller group close to South Beach.</p>
+          <div class="book-row">
+            <!-- TODO: replace #book-direct with live Miami booking URL -->
+            <a class="btn btn-primary book-direct" data-magnetic href="#book-direct">Book Direct</a>
+            <a class="or-airbnb" href="https://www.airbnb.com/rooms/968315579016397898" target="_blank" rel="noopener">or book on Airbnb</a>
+            <span class="or-label">Other sites coming soon:</span>
+            <a class="ota-link" href="#" aria-label="VRBO coming soon">VRBO</a>
+            <a class="ota-link" href="#" aria-label="Booking.com coming soon">Booking.com</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="arcade" id="arcade">
+  <div class="wrap">
+    <p class="sec-kicker reveal">The Differentiator</p>
+    <h2 class="sec-title reveal">Every home has its own arcade.</h2>
+    <p class="sec-sub reveal d1">Plenty of Miami rentals give you a bed. Ours give you a reason to stay in &mdash; at least for a round or two. It's the thing guests talk about most.</p>
+    <div class="arcade-layout">
+      <div class="arcade-photo reveal" data-parallax="0.08">
+        <img src="img/m1-4.jpg" alt="Three arcade cabinets — X-Men, NBA Jam, and Street Fighter — on a green wall" loading="lazy">
+      </div>
+      <div class="arcade-cards">
+        <div class="arcade-card reveal">
+          <div class="ico">&#128377;&#65039;</div>
+          <div><h3>Free play, always</h3><p>No quarters, no tokens, no timers. The games are on the house for your whole stay.</p></div>
+        </div>
+        <div class="arcade-card reveal d1">
+          <div class="ico">&#127942;</div>
+          <div><h3>Bragging rights included</h3><p>Family tournament, date-night showdown, kids vs. parents &mdash; somebody's leaving Miami a champion.</p></div>
+        </div>
+        <div class="arcade-card reveal d2">
+          <div class="ico">&#127769;</div>
+          <div><h3>The built-in rainy-day plan</h3><p>Beach day rained out? Flight lands late? The arcade doesn't care what time it is.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <p class="sec-kicker reveal">Inside the Homes</p>
+    <h2 class="sec-title reveal">Bright, designed, and ready to play.</h2>
+    <p class="sec-sub reveal d1">A peek inside &mdash; from sun-filled living rooms to retro cabinets and restful bedrooms.</p>
+    <div class="gallery-grid reveal">
+      <figure class="wide tall"><img src="img/mb-1.jpg" alt="Boutique home living room with vaulted wood-beam ceiling" loading="lazy"></figure>
+      <figure><img src="img/m2-3.jpg" alt="Simpsons arcade cabinet in the living room" loading="lazy"></figure>
+      <figure><img src="img/m1-3.jpg" alt="Bright living room with sectional and gallery wall" loading="lazy"></figure>
+      <figure class="wide"><img src="img/m2-2.jpg" alt="Open living room with Simpsons cabinet by the window" loading="lazy"></figure>
+      <figure><img src="img/mb-4.jpg" alt="Super Street Fighter II arcade cabinet" loading="lazy"></figure>
+      <figure><img src="img/m2-5.jpg" alt="Restful bedroom with macrame wall art" loading="lazy"></figure>
+      <figure><img src="img/m1-5.jpg" alt="Dining table set beside the open living room" loading="lazy"></figure>
+      <figure><img src="img/mb-5.jpg" alt="Boutique home bedroom with upholstered headboard" loading="lazy"></figure>
+      <figure class="wide"><img src="img/mb-2.jpg" alt="Boutique home living and kitchen open layout" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section id="neighborhood">
+  <div class="wrap hood-grid">
+    <div class="reveal">
+      <p class="sec-kicker">The Neighborhood</p>
+      <h2 class="sec-title">Little Havana, right outside your door.</h2>
+      <p class="sec-sub" style="margin-bottom:0">Calle Ocho isn't a tourist stop for us &mdash; it's the block we host on. Walk out and you're in the middle of the most flavorful neighborhood in Miami.</p>
+      <ul class="hood-list">
+        <li><span class="mark">&#9749;</span><div><b>Cafecito culture</b><span>Cuban coffee windows, pastelitos, and conversation &mdash; mornings here have a rhythm of their own.</span></div></li>
+        <li><span class="mark">&#127926;</span><div><b>Live music &amp; dominoes</b><span>Calle Ocho hums day and night, and Domino Park is a few blocks away.</span></div></li>
+        <li><span class="mark">&#127796;</span><div><b>Central to everything</b><span>South Beach is roughly 10&ndash;15 minutes away, with Brickell, downtown, and the airport an easy drive.</span></div></li>
+      </ul>
+      <div class="hood-near">
+        <span class="chip">Calle Ocho (SW 8th St)</span>
+        <span class="chip">Domino Park</span>
+        <span class="chip">Versailles Restaurant</span>
+        <span class="chip">South Beach ~10&ndash;15 min</span>
+      </div>
+    </div>
+    <div class="hood-photo reveal d1" data-parallax="0.1">
+      <img src="img/m1-2.jpg" alt="The Calle Ocho home lit up at twilight with palm trees" loading="lazy">
+      <span class="cap">1721 SW 11th Terrace &middot; Little Havana</span>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <p class="sec-kicker reveal">Guest Love</p>
+    <h2 class="sec-title reveal">Airbnb Superhost &middot; 221 reviews &middot; 5-star stays.</h2>
+    <p class="sec-sub reveal d1">We host these homes personally &mdash; and it shows. We've earned Airbnb Superhost status, the badge reserved for hosts with top ratings, fast replies, and reliable stays. The ratings below come straight from Airbnb.</p>
+    <div class="superhost-callout reveal d1">
+      <span class="sh-medal">&#127941;</span>
+      <div class="sh-text">
+        <b>Airbnb Superhost</b>
+        <span>Top-rated, experienced hosts &mdash; 221 reviews and 5-star stays across all three Miami homes.</span>
+      </div>
+    </div>
+    <div class="stars-row">
+      <div class="stat-pill reveal"><b><span class="star">&#9733;</span>4.77</b><span>92 reviews &mdash; Miami &amp; Calle Ocho Home with Full Arcade</span></div>
+      <div class="stat-pill reveal d1"><b><span class="star">&#9733;</span>4.89</b><span>46 reviews &mdash; Calle Ocho Home with Simpsons Arcade</span></div>
+      <div class="stat-pill reveal d2"><b><span class="star">&#9733;</span>4.81</b><span>83 reviews &mdash; Miami Boutique by Calle Ocho, South Beach w/ Arcade</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="direct" id="book">
+  <a id="book-direct"></a>
+  <div class="wrap">
+    <p class="sec-kicker reveal">Book Direct &amp; Save</p>
+    <h2 class="sec-title reveal">Book direct &amp; save ~15%.</h2>
+    <p class="sec-sub reveal d1">Same homes, same hosts, best rate. Booking directly with us skips the booking-site service fees, so guests typically save ~15% versus the OTAs &mdash; plus you get our personal service from first message to checkout.</p>
+    <div class="save-banner reveal d1">
+      <div class="save-badge"><span class="big">~15%</span><span class="sml">typical savings</span></div>
+      <div>
+        <h3>Why book direct?</h3>
+        <p>When you book through a booking site, you pay their service fee on top of the nightly rate. Book direct and that fee goes away &mdash; same home, best rate, and you're talking straight to the people who host it.</p>
+        <div class="save-perks">
+          <span>&#10003; Skip the booking-site service fees</span>
+          <span>&#10003; Same homes, best rate</span>
+          <span>&#10003; Personal host service</span>
+        </div>
+      </div>
+    </div>
+    <p class="sec-sub reveal d1" style="margin-bottom:2.4rem">Pick your home below and message us to lock in the direct rate. Prefer Airbnb? Every home's verified listing is one tap away.</p>
+    <div class="book-grid">
+
+      <div class="book-card reveal">
+        <div class="bc-photo"><img src="img/m1-1.jpg" alt="Miami &amp; Calle Ocho Home exterior" loading="lazy"></div>
+        <div class="bc-body">
+          <h3>Miami &amp; Calle Ocho Home with Full Arcade</h3>
+          <div class="unit-rating"><span class="star">&#9733;</span> 4.77 <span class="count">&middot; 92 reviews &middot; Sleeps 6</span></div>
+          <!-- TODO: replace #book-direct with live Miami booking URL -->
+          <a class="btn-book-direct" data-magnetic href="#book-direct">Book Direct &amp; Save &rarr;</a>
+          <a class="bc-airbnb" href="https://www.airbnb.com/rooms/1025567565334206884" target="_blank" rel="noopener">or book on Airbnb</a>
+          <div class="bc-otas"><a href="#" aria-label="VRBO coming soon">VRBO</a><a href="#" aria-label="Booking.com coming soon">Booking.com</a></div>
+        </div>
+      </div>
+
+      <div class="book-card reveal d1">
+        <div class="bc-photo"><img src="img/m2-1.jpg" alt="Calle Ocho Home living room with Simpsons arcade" loading="lazy"></div>
+        <div class="bc-body">
+          <h3>Calle Ocho Home with Simpsons Arcade</h3>
+          <div class="unit-rating"><span class="star">&#9733;</span> 4.89 <span class="count">&middot; 46 reviews &middot; Sleeps 6</span></div>
+          <!-- TODO: replace #book-direct with live Miami booking URL -->
+          <a class="btn-book-direct" data-magnetic href="#book-direct">Book Direct &amp; Save &rarr;</a>
+          <a class="bc-airbnb" href="https://www.airbnb.com/rooms/1050944831279941178" target="_blank" rel="noopener">or book on Airbnb</a>
+          <div class="bc-otas"><a href="#" aria-label="VRBO coming soon">VRBO</a><a href="#" aria-label="Booking.com coming soon">Booking.com</a></div>
+        </div>
+      </div>
+
+      <div class="book-card reveal d2">
+        <div class="bc-photo"><img src="img/mb-2.jpg" alt="Miami Boutique home open living and kitchen" loading="lazy"></div>
+        <div class="bc-body">
+          <h3>Miami Boutique by Calle Ocho &mdash; South Beach w/ Arcade</h3>
+          <div class="unit-rating"><span class="star">&#9733;</span> 4.81 <span class="count">&middot; 83 reviews &middot; Sleeps 4</span></div>
+          <!-- TODO: replace #book-direct with live Miami booking URL -->
+          <a class="btn-book-direct" data-magnetic href="#book-direct">Book Direct &amp; Save &rarr;</a>
+          <a class="bc-airbnb" href="https://www.airbnb.com/rooms/968315579016397898" target="_blank" rel="noopener">or book on Airbnb</a>
+          <div class="bc-otas"><a href="#" aria-label="VRBO coming soon">VRBO</a><a href="#" aria-label="Booking.com coming soon">Booking.com</a></div>
+        </div>
+      </div>
+
+    </div>
+    <p class="fine reveal d1">VRBO and Booking.com listings are on the way &mdash; until then, every Airbnb link above goes straight to the home's live, verified listing.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="sec-kicker">Contact</p>
+      <h2 class="sec-title">Message us to lock in the direct rate.</h2>
+      <p class="sec-sub" style="margin-bottom:0">Want the best price? Reach out and we'll set up your direct booking &mdash; same home, no booking-site service fee, typically ~15% less than the OTAs. Planning a trip, traveling with a group, or curious which home fits you best? Every message comes straight to your hosts, and we typically reply fast.</p>
+      <div class="addr">
+        <span class="mark">&#128205;</span>
+        <span>1721 SW 11th Terrace, Miami, FL 33135 &middot; Little Havana</span>
+      </div>
+    </div>
+    <div class="contact-card reveal d1">
+      <h3>Message your hosts to book direct</h3>
+      <p>Tell us your dates and the home you want and we'll lock in your direct rate &mdash; you're talking to the people who host these homes, not a call center. Prefer Airbnb? Open any listing below and tap &ldquo;Message Host.&rdquo;</p>
+      <ul class="contact-list">
+        <li><a href="https://www.airbnb.com/rooms/1025567565334206884" target="_blank" rel="noopener">Miami &amp; Calle Ocho Home with Full Arcade <span class="go">&rarr;</span></a></li>
+        <li><a href="https://www.airbnb.com/rooms/1050944831279941178" target="_blank" rel="noopener">Calle Ocho Home with Simpsons Arcade <span class="go">&rarr;</span></a></li>
+        <li><a href="https://www.airbnb.com/rooms/968315579016397898" target="_blank" rel="noopener">Miami Boutique by Calle Ocho, South Beach w/ Arcade <span class="go">&rarr;</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <a class="brand" href="#top"><span class="dot"></span>Stay Calle Ocho</a>
+      <p>Three boutique homes in Little Havana, Miami &mdash; each with its own arcade. Hosted with care, steps from Calle Ocho.</p>
+    </div>
+    <div>
+      <h4>The Homes</h4>
+      <ul>
+        <li><a href="https://www.airbnb.com/rooms/1025567565334206884" target="_blank" rel="noopener">Calle Ocho Home with Full Arcade</a></li>
+        <li><a href="https://www.airbnb.com/rooms/1050944831279941178" target="_blank" rel="noopener">Calle Ocho Home with Simpsons Arcade</a></li>
+        <li><a href="https://www.airbnb.com/rooms/968315579016397898" target="_blank" rel="noopener">Miami Boutique by Calle Ocho</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#arcade">The Arcades</a></li>
+        <li><a href="#neighborhood">Little Havana</a></li>
+        <li><a href="#book">Book Your Stay</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>&copy; 2026 DLJ Properties &middot; Miami, Florida</span>
+    <span>VRBO &amp; Booking.com links coming soon.</span>
+  </div>
+</footer>
+
+<!-- ============================================================
+     PROGRESSIVE-ENHANCEMENT SCRIPTS
+     Everything below is additive. If any CDN fails to load, the
+     core content, photos, and booking links remain fully visible
+     (we never hide content unless the corresponding library is
+     confirmed loaded). Guarded by try/catch + feature checks.
+     ============================================================ -->
+
+<!-- CDN libraries (deferred; failure is tolerated) -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+<script>
+(function(){
+  "use strict";
+  var docEl = document.documentElement;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // -------- 0. Opt into JS-enhanced reveals (content was visible by default) --------
+  docEl.classList.add('js');
+
+  // -------- 1. Dismiss the intro overlay fast (and never let it stick) --------
+  function dismissIntro(){
+    var intro = document.getElementById('intro');
+    if (intro) intro.classList.add('done');
+  }
+  // Hide it shortly after load — and a hard fallback so it can never block content.
+  window.addEventListener('load', function(){ setTimeout(dismissIntro, 700); });
+  setTimeout(dismissIntro, 1600); // hard cap regardless of load event
+
+  // -------- 2. Split-text headline: wrap each word so it can rise in --------
+  // (text is already present/visible; we only wrap + animate under .js)
+  try {
+    document.querySelectorAll('.split .split-line').forEach(function(line){
+      var words = line.textContent.split(/(\s+)/);
+      line.textContent = '';
+      words.forEach(function(w){
+        if (w.trim() === '') { line.appendChild(document.createTextNode(w)); return; }
+        var span = document.createElement('span');
+        span.className = 'split-word';
+        span.textContent = w;
+        line.appendChild(span);
+      });
+    });
+  } catch(e){}
+
+  // -------- 3. Reveal-on-scroll via IntersectionObserver (works without GSAP) --------
+  function revealNow(el){ el.classList.add('in'); }
+  var revealEls = document.querySelectorAll('.reveal, .split');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(revealNow);
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          var el = e.target;
+          if (el.classList.contains('split')){
+            var ws = el.querySelectorAll('.split-word');
+            ws.forEach(function(w,i){ w.style.transitionDelay = (i*0.05)+'s'; });
+          }
+          revealNow(el);
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  }
+  // Reveal the hero headline immediately (it's above the fold).
+  setTimeout(function(){
+    document.querySelectorAll('header.hero .reveal, header.hero .split').forEach(revealNow);
+  }, 250);
+
+  // -------- 4. Sticky-nav scroll state --------
+  var nav = document.getElementById('nav');
+  var onScrollNav = function(){
+    if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScrollNav, { passive:true });
+  onScrollNav();
+
+  // -------- 5. Custom branded cursor (desktop pointer devices only) --------
+  if (canHover && !reduceMotion){
+    try {
+      document.body.classList.add('cursor-on');
+      var dot = document.querySelector('.cursor-dot');
+      var ring = document.querySelector('.cursor-ring');
+      var rx = window.innerWidth/2, ry = window.innerHeight/2, mx = rx, my = ry;
+      window.addEventListener('mousemove', function(ev){
+        mx = ev.clientX; my = ev.clientY;
+        dot.style.transform = 'translate('+mx+'px,'+my+'px) translate(-50%,-50%)';
+      });
+      (function ringLoop(){
+        rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
+        ring.style.transform = 'translate('+rx+'px,'+ry+'px) translate(-50%,-50%)';
+        requestAnimationFrame(ringLoop);
+      })();
+      document.querySelectorAll('a,button,[data-tilt]').forEach(function(el){
+        el.addEventListener('mouseenter', function(){ ring.classList.add('hot'); });
+        el.addEventListener('mouseleave', function(){ ring.classList.remove('hot'); });
+      });
+    } catch(e){ document.body.classList.remove('cursor-on'); }
+  }
+
+  // -------- 6. Magnetic buttons --------
+  if (canHover && !reduceMotion){
+    document.querySelectorAll('[data-magnetic]').forEach(function(btn){
+      btn.addEventListener('mousemove', function(ev){
+        var r = btn.getBoundingClientRect();
+        var x = ev.clientX - r.left - r.width/2;
+        var y = ev.clientY - r.top - r.height/2;
+        btn.style.transform = 'translate('+(x*0.25)+'px,'+(y*0.35)+'px)';
+      });
+      btn.addEventListener('mouseleave', function(){ btn.style.transform = ''; });
+    });
+  }
+
+  // -------- 7. Card 3D tilt on hover --------
+  if (canHover && !reduceMotion){
+    document.querySelectorAll('[data-tilt]').forEach(function(card){
+      card.addEventListener('mousemove', function(ev){
+        var r = card.getBoundingClientRect();
+        var px = (ev.clientX - r.left)/r.width - 0.5;
+        var py = (ev.clientY - r.top)/r.height - 0.5;
+        card.style.transform = 'perspective(900px) rotateX('+(-py*5)+'deg) rotateY('+(px*6)+'deg) translateY(-8px)';
+      });
+      card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
+    });
+  }
+
+  // -------- 8. Lightweight WebGL twilight-depth hero (canvas 2D fallback) --------
+  // Floating neon "particles" drifting up through Miami twilight — gives the
+  // hero genuine depth/parallax without a heavy 3D engine. Capped + paused
+  // when offscreen for performance; skipped entirely on reduced-motion.
+  if (!reduceMotion){
+    try {
+      var canvas = document.getElementById('hero-canvas');
+      var ctx = canvas.getContext('2d');
+      var DPR = Math.min(window.devicePixelRatio || 1, 2);
+      var W, H, particles = [];
+      var COLORS = ['#ff2e88','#21e6c1','#ff9966','#ffc145'];
+      function resize(){
+        W = canvas.clientWidth; H = canvas.clientHeight;
+        canvas.width = W*DPR; canvas.height = H*DPR;
+        ctx.setTransform(DPR,0,0,DPR,0,0);
+      }
+      function makeParticles(){
+        // density scales with area but is capped low for mobile smoothness
+        var count = Math.min(Math.round((W*H)/26000), 60);
+        particles = [];
+        for (var i=0;i<count;i++){
+          particles.push({
+            x: Math.random()*W,
+            y: Math.random()*H,
+            z: 0.35 + Math.random()*0.65,           // depth -> size & speed
+            r: 1 + Math.random()*2.4,
+            c: COLORS[(Math.random()*COLORS.length)|0],
+            sp: 0.15 + Math.random()*0.5,
+            tw: Math.random()*Math.PI*2
+          });
+        }
+      }
+      resize(); makeParticles();
+      window.addEventListener('resize', function(){ resize(); makeParticles(); });
+
+      var running = true, rafId = null;
+      function draw(){
+        if (!running) return;
+        ctx.clearRect(0,0,W,H);
+        for (var i=0;i<particles.length;i++){
+          var p = particles[i];
+          p.y -= p.sp * p.z;             // drift up; deeper = faster (parallax)
+          p.tw += 0.02;
+          if (p.y < -10){ p.y = H + 10; p.x = Math.random()*W; }
+          var alpha = (0.25 + 0.35*p.z) * (0.6 + 0.4*Math.sin(p.tw));
+          ctx.beginPath();
+          ctx.globalAlpha = Math.max(0, alpha);
+          ctx.fillStyle = p.c;
+          ctx.shadowColor = p.c;
+          ctx.shadowBlur = 8*p.z;
+          ctx.arc(p.x, p.y, p.r*p.z, 0, Math.PI*2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1; ctx.shadowBlur = 0;
+        rafId = requestAnimationFrame(draw);
+      }
+      draw();
+      // pause the canvas loop when the hero scrolls out of view (perf)
+      var hero = document.querySelector('header.hero');
+      if ('IntersectionObserver' in window){
+        new IntersectionObserver(function(ents){
+          ents.forEach(function(en){
+            if (en.isIntersecting){ if (!running){ running = true; draw(); } }
+            else { running = false; if (rafId) cancelAnimationFrame(rafId); }
+          });
+        }, { threshold: 0.01 }).observe(hero);
+      }
+    } catch(e){ /* canvas optional — hero photo already provides the visual */ }
+  }
+
+  // -------- 9. Lenis smooth scroll + GSAP ScrollTrigger parallax/scrub --------
+  // Run after CDN libs have a chance to load. All optional + guarded.
+  function initScrollFX(){
+    var lenis = null;
+    try {
+      if (window.Lenis && !reduceMotion){
+        lenis = new window.Lenis({ duration: 1.1, smoothWheel: true, smoothTouch: false });
+        function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+      }
+    } catch(e){ lenis = null; }
+
+    try {
+      if (window.gsap && window.ScrollTrigger && !reduceMotion){
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Bridge Lenis -> ScrollTrigger so scrub stays in sync
+        if (lenis){
+          lenis.on('scroll', ScrollTrigger.update);
+          gsap.ticker.add(function(time){ lenis.raf(time*1000); });
+          gsap.ticker.lagSmoothing(0);
+        }
+
+        // Parallax layers (hero photo, gallery/arcade/hood photos)
+        document.querySelectorAll('[data-parallax]').forEach(function(el){
+          var amt = parseFloat(el.getAttribute('data-parallax')) || 0.12;
+          gsap.to(el, {
+            yPercent: amt*100,
+            ease: 'none',
+            scrollTrigger: { trigger: el.closest('section, header') || el, start: 'top bottom', end: 'bottom top', scrub: true }
+          });
+        });
+
+        // Gallery figures: subtle staggered scrub drift for editorial depth
+        gsap.utils.toArray('.gallery-grid figure').forEach(function(fig, i){
+          gsap.fromTo(fig, { y: 30 }, {
+            y: -20, ease: 'none',
+            scrollTrigger: { trigger: fig, start: 'top bottom', end: 'bottom top', scrub: true }
+          });
+        });
+
+        // Pin the arcade headline area briefly for a storytelling beat (desktop only)
+        if (window.innerWidth > 980){
+          ScrollTrigger.create({
+            trigger: '#arcade',
+            start: 'top top',
+            end: '+=40%',
+            pin: '.arcade .sec-title',
+            pinSpacing: false
+          });
+        }
+
+        ScrollTrigger.refresh();
+      }
+    } catch(e){ /* scroll FX optional */ }
+  }
+  // libs are deferred; give them a tick, then init
+  if (document.readyState === 'complete') setTimeout(initScrollFX, 60);
+  else window.addEventListener('load', function(){ setTimeout(initScrollFX, 60); });
+
+})();
+</script>
+</body>
+</html>
