@@ -180,8 +180,14 @@
   .hero-photo{
     position:absolute;inset:-8% 0 0 0;z-index:0;
     background:url("img/m1-2.jpg") center 55%/cover no-repeat;
-    transform:scale(1.08);will-change:transform;
+    transform:scale(1.08);will-change:transform,background-size,background-position;
+    animation:heroKenBurns 26s ease-in-out infinite alternate;
   }
+  @keyframes heroKenBurns{
+    from{background-size:cover;background-position:center 50%}
+    to{background-size:130%;background-position:center 62%}
+  }
+  @media (prefers-reduced-motion:reduce){ .hero-photo{animation:none} }
   /* full-bleed cinematic hero video — sits ABOVE the photo layer, BELOW canvas/tint.
      poster = the existing hero photo, so if img/hero.mp4 is missing it still looks great. */
   .hero-video{
@@ -578,15 +584,10 @@
 
 <header class="hero">
   <div class="hero-photo" data-parallax="0.18"></div>
-  <!-- Cinematic background video. Poster = existing hero photo, so this looks great
-       NOW even before the mp4 is dropped in. autoplay muted loop playsinline for mobile. -->
-  <!-- TODO: drop Higgsfield cinematic hero mp4 at img/hero.mp4 -->
-  <video class="hero-video" data-parallax="0.12"
-         autoplay muted loop playsinline preload="auto"
-         poster="img/hero-poster.jpg" aria-hidden="true">
-    <source src="img/hero-mobile.mp4" type="video/mp4" media="(max-width:680px)">
-    <source src="img/hero.mp4" type="video/mp4">
-  </video>
+  <!-- Owner DM 12690: arcade video moved DOWN to the arcade section; hero now LEADS with the
+       Miami exterior (m1-2) + Ken-Burns motion + canvas particles for a Miami vibe at the top. -->
+  <!-- TODO: optional upgrade — replace hero photo with a Miami-vibe cinematic video (needs fresh owner-go token). -->
+
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-tint"></div>
   <div class="hero-grid"></div>
@@ -718,7 +719,10 @@
     <p class="sec-sub reveal d1">Plenty of Miami rentals give you a bed. Ours give you a reason to stay in &mdash; at least for a round or two. It's the thing guests talk about most.</p>
     <div class="arcade-layout">
       <div class="arcade-photo reveal" data-parallax="0.08">
-        <img src="img/m1-4.jpg" alt="Three arcade cabinets — X-Men, NBA Jam, and Street Fighter — on a green wall" loading="lazy">
+        <video autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit" aria-label="Cinematic tour of an in-home arcade">
+          <source src="img/hero-mobile.mp4" type="video/mp4" media="(max-width:680px)">
+          <source src="img/hero.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="arcade-cards">
         <div class="arcade-card reveal">
